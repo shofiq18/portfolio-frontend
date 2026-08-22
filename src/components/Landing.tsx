@@ -213,7 +213,7 @@ const Landing = () => {
 
           <div className="landing-buttons">
             <a
-              href={encodeURI("/asset/Resume of Md Shofiqul Islam-Frontend Developer.pdf")}
+              href="/asset/Resume-of-Md-Shofiqul-Islam-Frontend-Developer.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
