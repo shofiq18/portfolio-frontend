@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
@@ -11,6 +12,32 @@ import { initialFX } from "./utils/initialFX";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Navbar = () => {
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    let lastScrollY = typeof window !== "undefined" ? window.scrollY : 0;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDiff = currentScrollY - lastScrollY;
+
+      if (currentScrollY <= 50) {
+        setHidden(false);
+      } else if (scrollDiff > 5) {
+        setHidden(true);
+      } else if (scrollDiff < -5) {
+        setHidden(false);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   useGSAP(() => {
     // Wait for Lenis to be initialized in window
     const lenis = (window as any).lenis;
@@ -44,9 +71,10 @@ const Navbar = () => {
       });
     });
   }, []);
+
   return (
     <>
-      <div className="header">
+      <div className={`header ${hidden ? "nav-hidden" : ""}`}>
         <ul>
           <li>
             <a data-href="#home" href="#home">
