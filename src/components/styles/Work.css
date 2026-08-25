@@ -124,10 +124,12 @@ p.work-card-category {
 
 .work-card-year {
   font-size: 14px;
-  color: #555;
+  color: rgba(255, 255, 255, 0.65);
   flex-shrink: 0;
-  padding-top: 8px;
-  font-weight: 500;
+  padding-top: 4px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  display: block;
 }
 
 
@@ -319,6 +321,10 @@ p.work-card-category {
 
 
 @media only screen and (max-width: 1024px) {
+  .work-section {
+    width: 94%;
+  }
+
   .work-section h2 {
     font-size: 44px;
     margin-top: 60px;
@@ -349,21 +355,93 @@ p.work-card-category {
   }
 }
 
-@media only screen and (max-width: 640px) {
-  .work-section h2 {
-    font-size: 34px;
-    margin-top: 40px;
+@media only screen and (max-width: 768px) {
+  .work-section {
+    width: 96%;
+    padding: 0;
   }
 
   .work-card-left {
-    padding: 24px 20px;
+    padding: 24px 16px;
+    gap: 16px;
+  }
+
+  .work-card-top {
+    gap: 12px;
+  }
+
+  .work-card-num {
+    font-size: 36px;
+  }
+
+  .work-card-meta h3 {
+    font-size: 26px;
+  }
+
+  p.work-card-category {
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    line-height: 1.35;
+  }
+
+  .work-card-right {
+    min-height: 200px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .work-section {
+    width: 98%;
+    padding: 0;
+  }
+
+  .work-section h2 {
+    font-size: 32px;
+    margin-top: 36px;
+    margin-bottom: 20px;
+  }
+
+  .work-card-left {
+    padding: 18px 12px;
+    gap: 12px;
+  }
+
+  .work-card-top {
+    gap: 10px;
+  }
+
+  .work-card-num {
+    font-size: 28px;
+  }
+
+  .work-card-meta h3 {
+    font-size: 22px;
+  }
+
+  p.work-card-category {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    line-height: 1.35;
+  }
+
+  .work-card-desc {
+    font-size: 13px;
+    line-height: 1.5;
   }
 
   .work-card-btns {
-    flex-direction: column;
+    flex-direction: row;
+    gap: 8px;
   }
 
   .work-btn {
+    padding: 8px 12px;
+    font-size: 11px;
+    flex: 1;
     justify-content: center;
+  }
+
+  .work-card-right {
+    min-height: 160px;
   }
 }
