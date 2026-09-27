@@ -162,15 +162,6 @@ const Work = () => {
                   >
                     Live Preview <MdArrowOutward />
                   </a>
-                  <a
-                    href={project.repoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="work-btn work-btn-repo"
-                    data-cursor="disable"
-                  >
-                    GitHub Repo <MdArrowOutward />
-                  </a>
                 </div>
               </div>
 
